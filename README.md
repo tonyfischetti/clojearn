@@ -1,4 +1,7 @@
 clojearn
 ========
 
-implementation of coursera machine learning  assignments in Clojure
+In order to learn Clojure, I'm implementing the assignments in
+[Coursera's Machine Learning course](http://ml-class.org) in Clojure.
+
+
