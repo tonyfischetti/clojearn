@@ -34,7 +34,8 @@
 (defn st-dev [a-vector]
   (let [themean (mean a-vector)]
     (Math/pow (/ (reduce + (map #(Math/pow % 2)
-                             (map #(- % themean) a-vector)))
+                                (map #(- % themean)
+                                     a-vector)))
                  (- (count a-vector) 1)) 0.5)))
 
 
@@ -59,12 +60,16 @@
 
 
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 ;; ?!??!???!! (does the fitting and everything)
 (defn fit-straight-line [x-vec y-vec]
   (println x-vec)
   (println y-vec))
 ; adaptive learning rate?
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
 
