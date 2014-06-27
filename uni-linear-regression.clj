@@ -33,10 +33,11 @@
 ; computes sample standard deviation
 (defn st-dev [a-vector]
   (let [themean (mean a-vector)]
-    (Math/pow (/ (reduce + (map #(Math/pow % 2)
-                                (map #(- % themean)
-                                     a-vector)))
-                 (- (count a-vector) 1)) 0.5)))
+    (->> (map #(- % themean) a-vector)
+         (map #(Math/pow % 2))
+         (reduce +)
+         (#(/ % (- (count a-vector) 1)))
+         (#(Math/pow % 0.5)))))
 
 
 ; returns a transformed vector where each
