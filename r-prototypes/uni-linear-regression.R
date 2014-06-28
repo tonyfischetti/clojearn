@@ -1,9 +1,10 @@
 #!/usr/bin/Rscript --vanilla
 
 
-cost.function <- function(x.vec, y.vec){
-  return(0.5 * mean((x.vec - y.vec) ^ 2))
-}
+#  we don't use this, but we use its partial derivatives
+# cost.function <- function(x.vec, y.vec){
+#   return(0.5 * mean((x.vec - y.vec) ^ 2))
+# }
 
 hypothesis.function <- function(theta1, theta2, x.vec){
   return(theta1 + theta2 * x.vec)
@@ -31,12 +32,8 @@ minimize <- function(x.vec, y.vec, alpha=1, theta1=0, theta2=0, epsilon=0.000001
   }
 }
 
-# cost.function(hypothesis.function(0, 0, c(1, 2, 3)), c(1, 2, 3))
 
 minimize(c(1, 2, 3), c(2, 4, 6), alpha=.2)
 minimize(c(1, 2, 3), c(-3, -6, -9), alpha=.2)
 minimize(c(1, 2, 3, 4), c(2, 4, 5, 8), alpha=.2)
 minimize(c(1, 2, 3, 4, 5), c(5, 8, 6, 8, 9), alpha=.1)
-
-#(Intercept)           xx  
-#        4.8          0.8  
