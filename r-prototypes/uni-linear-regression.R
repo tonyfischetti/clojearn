@@ -25,15 +25,15 @@ minimize <- function(x.vec, y.vec, alpha=1, theta1=0, theta2=0, epsilon=0.000001
       return(c(round(new.theta1,3), round(new.theta2, 3)))
     theta1 <- new.theta1
     theta2 <- new.theta2
-    cat("Theta 1: "); cat(theta1); cat("\n");
-    cat("Theta 2: "); cat(theta2); cat("\n");
-    readline("continue? ")
-    cat("\n")
+    #cat("Theta 1: "); cat(theta1); cat("\n");
+    #cat("Theta 2: "); cat(theta2); cat("\n");
+    #readline("continue? ")
+    #cat("\n")
   }
 }
 
 
-minimize(c(1, 2, 3), c(2, 4, 6), alpha=.2)
-minimize(c(1, 2, 3), c(-3, -6, -9), alpha=.2)
-minimize(c(1, 2, 3, 4), c(2, 4, 5, 8), alpha=.2)
-minimize(c(1, 2, 3, 4, 5), c(5, 8, 6, 8, 9), alpha=.1)
+minimize(c(1, 2, 3), c(2, 4, 6), alpha=.2)                 # 0     2
+minimize(c(1, 2, 3), c(-3, -6, -9), alpha=.2)              # 0     -3
+minimize(c(1, 2, 3, 4), c(2, 4, 5, 8), alpha=.2)           # 0     1.9
+minimize(c(1, 2, 3, 4, 5), c(5, 8, 6, 8, 9), alpha=.1)     # 4.8   0.8
