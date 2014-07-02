@@ -18,9 +18,11 @@ minimize <- function(x.mat, y.vec, alpha, epsilon=0.00000000001){
   x.mat <- cbind(1, x.mat)
   while(TRUE){
 
+    hypothesis <- hypothesis.function(param.vec, x.mat)
+
     new.params <- param.vec - apply(x.mat, 2,
     function(x.vec){
-      return(alpha * (mean((hypothesis.function(param.vec, x.mat) - y.vec) * x.vec)))
+      return(alpha * (mean((hypothesis - y.vec) * x.vec)))
     })
 
     if(all(abs(new.params - param.vec) < epsilon))
