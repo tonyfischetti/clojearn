@@ -1,0 +1,1 @@
+http://onbeyondlambda.blogspot.com/2014/07/linear-regression-in-clojure-part-i.html
