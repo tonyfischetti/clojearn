@@ -13,17 +13,18 @@ hypothesis.function <- function(param.vec, x.mat){
 # uses (naive) gradient descent to choose best linear
 # regression coefficients
 minimize <- function(x.mat, y.vec, alpha, epsilon=0.00000000001){
-  # initialize param.vec
-  param.vec <- rep(0, ncol(x.mat)+1)
+  # add dummy feature (to pair with intercept parameter)
   x.mat <- cbind(1, x.mat)
+  # initialize param.vec
+  param.vec <- rep(0, ncol(x.mat))
+
+  m <- nrow(x.mat)
+
   while(TRUE){
 
     hypothesis <- hypothesis.function(param.vec, x.mat)
 
-    new.params <- param.vec - apply(x.mat, 2,
-    function(x.vec){
-      return(alpha * (mean((hypothesis - y.vec) * x.vec)))
-    })
+    new.params <- param.vec - alpha * (t(x.mat) %*% (hypothesis - y.vec)) / m
 
     if(all(abs(new.params - param.vec) < epsilon))
       return(round(new.params, 3))
